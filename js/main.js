@@ -76,5 +76,9 @@ createApp({
                 this.slides.activeImage--;
             }
         },
+        thumbClick(index) {
+            this.slides.activeImage = index;
+            console.log(this.slides.activeImage);
+        },
     },
 }).mount("#root");
