@@ -40,6 +40,13 @@
 			<div class="my-carousel">
 				<div class="my-carousel-main" id="slides-container">
 
+					<div class="slide active">
+						<img src="./img/01.webp">
+						<div class="slide-text">
+							<h2> {{ slides.titles[0] }} </h2>
+							<p> {{ slides.descriptions[0] }} </p>
+						</div>
+					</div>
 					<!-- <div class="slide active">
 						<img src="./img/01.webp">
 						<div class="slide-text">
@@ -103,21 +110,9 @@
 				</div>
 
 				<div class="my-carousel-thumbs" id="thumbs-container">
-					<!-- <div class="col thumb">
-						<img src="./img/01.webp">
+					<div class="col thumb" v-for="image in slides.images">
+						<img :src="image">
 					</div>
-					<div class="col thumb">
-						<img src="./img/02.webp">
-					</div>
-					<div class="col thumb">
-						<img src="./img/03.webp">
-					</div>
-					<div class="col thumb">
-						<img src="./img/04.webp">
-					</div>
-					<div class="col thumb">
-						<img src="./img/05.webp">
-					</div> -->
 				</div>
 			</div>
 
