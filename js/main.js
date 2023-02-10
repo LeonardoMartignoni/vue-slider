@@ -81,4 +81,10 @@ createApp({
             console.log(this.slides.activeImage);
         },
     },
+
+    created() {
+        setInterval(() => {
+            this.onNextClick();
+        }, 3000);
+    },
 }).mount("#root");
