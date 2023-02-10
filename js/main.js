@@ -60,4 +60,21 @@ createApp({
             },
         };
     },
+
+    methods: {
+        onNextClick() {
+            if (this.slides.activeImage + 1 >= this.slides.images.length) {
+                this.slides.activeImage = 0;
+            } else {
+                this.slides.activeImage++;
+            }
+        },
+        onPrevClick() {
+            if (this.slides.activeImage <= 0) {
+                this.slides.activeImage = this.slides.images.length - 1;
+            } else {
+                this.slides.activeImage--;
+            }
+        },
+    },
 }).mount("#root");
