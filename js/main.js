@@ -29,62 +29,62 @@
 const { createApp } = Vue;
 
 createApp({
-    data() {
-        return {
-            slides: {
-                titles: [
-                    "Marvel's Spiderman Miles Morale",
-                    "Ratchet & Clank: Rift Apart",
-                    "Fortnite",
-                    "Stray",
-                    "Marvel's Avengers",
-                ],
+  data() {
+    return {
+      slides: {
+        titles: [
+          "Marvel's Spiderman Miles Morale",
+          "Ratchet & Clank: Rift Apart",
+          "Fortnite",
+          "Stray",
+          "Marvel's Avengers",
+        ],
 
-                descriptions: [
-                    "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.",
-                    "Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.",
-                    "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
-                    "Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city",
-                    "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
-                ],
+        descriptions: [
+          "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.",
+          "Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.",
+          "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+          "Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city",
+          "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
+        ],
 
-                images: [
-                    "./img/01.webp",
-                    "./img/02.webp",
-                    "./img/03.webp",
-                    "./img/04.webp",
-                    "./img/05.webp",
-                ],
+        images: [
+          "./img/01.webp",
+          "./img/02.webp",
+          "./img/03.webp",
+          "./img/04.webp",
+          "./img/05.webp",
+        ],
 
-                activeImage: 0,
-            },
-        };
+        activeImage: 0,
+      },
+    };
+  },
+
+  methods: {
+    onNextClick() {
+      if (this.slides.activeImage + 1 >= this.slides.images.length) {
+        this.slides.activeImage = 0;
+      } else {
+        this.slides.activeImage++;
+      }
     },
-
-    methods: {
-        onNextClick() {
-            if (this.slides.activeImage + 1 >= this.slides.images.length) {
-                this.slides.activeImage = 0;
-            } else {
-                this.slides.activeImage++;
-            }
-        },
-        onPrevClick() {
-            if (this.slides.activeImage <= 0) {
-                this.slides.activeImage = this.slides.images.length - 1;
-            } else {
-                this.slides.activeImage--;
-            }
-        },
-        thumbClick(index) {
-            this.slides.activeImage = index;
-            console.log(this.slides.activeImage);
-        },
+    onPrevClick() {
+      if (this.slides.activeImage <= 0) {
+        this.slides.activeImage = this.slides.images.length - 1;
+      } else {
+        this.slides.activeImage--;
+      }
     },
-
-    created() {
-        setInterval(() => {
-            this.onNextClick();
-        }, 3000);
+    thumbClick(index) {
+      this.slides.activeImage = index;
+      console.log(this.slides.activeImage);
     },
+  },
+
+  created() {
+    const stopSlides = setInterval(() => {
+      this.onNextClick();
+    }, 3000);
+  },
 }).mount("#root");
